@@ -21,9 +21,9 @@ AsciiComments:
 Style/Documentation:
   Enabled: false
 
-# module/class のネストを推奨 (例: Foo::BarController)
+# module::class を許可 (例: Foo::BarController)
 ClassAndModuleChildren:
-  EnforcedStyle: compact
+  Enabled: false
 
 # line is too long を判定しないディレクトリを設定
 Metrics/LineLength:
