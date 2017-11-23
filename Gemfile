@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.6'
+gem 'rails', '5.0.6'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -14,6 +14,11 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
+# 日本語対応
+gem 'rails-i18n'
+
+# Haml
 gem 'haml-rails'
 
 group :developement, :test do

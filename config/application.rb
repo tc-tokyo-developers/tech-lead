@@ -14,7 +14,11 @@ Bundler.require(*Rails.groups)
 
 module OriAppPortal
   class Application < Rails::Application
+    # タイムゾーン指定
     config.time_zone = 'Asia/Tokyo'
+    # rails-i18nで日本語対応
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :ja
     config.generators do |g|
       # ヘルパーを自動生成しない
       g.helper false
