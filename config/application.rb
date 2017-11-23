@@ -12,7 +12,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 
-module OriAppPortal
+module TechLead
   class Application < Rails::Application
     # タイムゾーン指定
     config.time_zone = 'Asia/Tokyo'

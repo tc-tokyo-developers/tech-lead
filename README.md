@@ -1,4 +1,4 @@
-# Ori App Portal
+# TECH::LEAD
 
 ***
 ## Description
@@ -12,7 +12,7 @@ mysql2 0.4.10
 ## Setup
 
 ```sh
-$ git clone git@github.com:tc-tokyo-developers/ori-app-portal.git
+$ git clone git@github.com:tc-tokyo-developers/tech-lead.git
 
 $ bundle
 
