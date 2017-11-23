@@ -51,4 +51,4 @@ production:
   <<: *default
   database: tech-lead_production
   username: tech-lead
-  password: <%= ENV['tech-lead_DATABASE_PASSWORD'] %>
+  password: <%= ENV['TECH-LEAD_DATABASE_PASSWORD'] %>
