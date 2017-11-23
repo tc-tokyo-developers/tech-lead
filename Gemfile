@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'haml-rails'
 
 group :developement, :test do
   gem 'byebug', platform: :mri
@@ -54,6 +55,9 @@ group :development do
 
   # 速度計測
   gem 'rack-mini-profiler'
+
+  # haml変換
+  gem 'erb2haml'
 end
 
 # windows対応
