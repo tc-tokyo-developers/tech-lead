@@ -1,24 +1,46 @@
-# README
+# TECH::LEAD
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+***
+## Description
 
-Things you may want to cover:
+```
+Ruby   2.4.2
+Rails  5.0.6
+mysql2 0.4.10
+```
 
-* Ruby version
+## Setup
 
-* System dependencies
+```sh
+$ git clone git@github.com:tc-tokyo-developers/tech-lead.git
 
-* Configuration
+$ bundle
 
-* Database creation
+$ rails db:create
 
-* Database initialization
+$ rails db:migrate
 
-* How to run the test suite
+$ rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Development
 
-* Deployment instructions
+1. 作業ブランチ作成
 
-* ...
+```sh
+$ git checkout -b ブランチ名 (feature/xxx or fix/xxx)
+
+$ git commit --allow-empty -m "create pull request"
+
+$ git push origin ブランチ名
+```
+
+2. [WIP]をつけてPR作成。
+
+3. 実装
+
+4. [WIP]を外してレビュー依頼
+
+***
+
+## DB設計
