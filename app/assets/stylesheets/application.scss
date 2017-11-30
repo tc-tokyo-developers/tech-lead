@@ -1,0 +1,11 @@
+// 文字コード
+@charset 'utf-8';
+
+// リセットCSS
+@import 'reset';
+
+// modules
+@import 'modules/colors';
+
+// main styles
+@import 'partials/base';
