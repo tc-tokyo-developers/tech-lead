@@ -21,6 +21,7 @@ gem 'rails-i18n'
 # Haml
 gem 'haml-rails'
 
+<<<<<<< HEAD
 # Gibhub認証
 gem 'omniauth'
 gem 'omniauth-github'
@@ -29,6 +30,12 @@ gem 'omniauth-github'
 gem 'dotenv-rails'
 
 group :development, :test do
+=======
+# Bootstrap
+gem 'bootstrap-sass'
+
+group :developement, :test do
+>>>>>>> 2597f68... Install bootstrap-sass
   gem 'byebug', platform: :mri
 
   # RSpec
