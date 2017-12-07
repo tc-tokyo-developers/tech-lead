@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'sessions/callback'
 
   get 'auth/:provider/callback' => 'sessions#callback'
@@ -15,4 +16,7 @@ Rails.application.routes.draw do
   end
 
   root 'student/tmp#index'
+=======
+  root "top#index"
+>>>>>>> 029be6f... Create top_controller
 end
