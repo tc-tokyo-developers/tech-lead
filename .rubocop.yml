@@ -38,3 +38,7 @@ Metrics/BlockLength:
     - 'lib/tasks/**/*'
     - 'lib/**/spec/*'
     - 'spec/**/*'
+
+# frozen string literal comment を判定しない
+Style/FrozenStringLiteralComment:
+  Enabled: false
