@@ -25,6 +25,9 @@ gem 'haml-rails'
 gem 'omniauth'
 gem 'omniauth-github'
 
+# .env
+gem 'dotenv-rails'
+
 group :developement, :test do
   gem 'byebug', platform: :mri
 
