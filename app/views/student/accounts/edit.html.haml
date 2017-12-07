@@ -1,0 +1,7 @@
+= form_for ['student', @user], url: student_accounts_path do |f|
+  = @user.github_name
+  = f.label :nickname
+  = f.text_field :nickname
+  = f.label :profile
+  = f.text_field :profile
+  = f.submit '更新する'
