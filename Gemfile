@@ -21,6 +21,10 @@ gem 'rails-i18n'
 # Haml
 gem 'haml-rails'
 
+# Gibhub認証
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :developement, :test do
   gem 'byebug', platform: :mri
 
