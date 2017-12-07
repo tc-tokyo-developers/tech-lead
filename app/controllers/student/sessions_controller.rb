@@ -15,6 +15,6 @@ class Student::SessionsController < ApplicationController
 
   def login_or_register_user(auth)
     user = User.find_by(provider: auth[:provider], uid: auth[:uid])
-    User.create_with_omniauth(auth) if user.empty?
+    Student::User.create_with_omniauth(auth) if user.blank?
   end
 end

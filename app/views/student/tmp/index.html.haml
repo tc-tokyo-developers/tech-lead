@@ -1,2 +1,4 @@
-%h1 Student::Tmp#index
-%p Find me in app/views/student/tmp/index.html.haml
+- if current_user
+  = link_to "Sign out", "/logout"
+- else
+  = link_to "Sign in with GitHub", "/auth/github"
