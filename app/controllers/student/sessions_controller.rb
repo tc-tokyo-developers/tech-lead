@@ -1,4 +1,6 @@
 class Student::SessionsController < ApplicationController
+  skip_before_action :authenticate_user
+
   def callback
     auth = request.env['omniauth.auth']
     user = Student::User.find_by(provider: auth[:provider], uid: auth[:uid])
