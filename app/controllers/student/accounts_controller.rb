@@ -1,15 +1,11 @@
 class Student::AccountsController < ApplicationController
-  def show
-    # TODO: プロフィール表示画面を作成する
-    redirect_to edit_edit_student_accounts_path
-  end
+  before_action :set_current_user
 
-  def edit
-    @user = current_user
-  end
+  def show; end
+
+  def edit; end
 
   def update
-    @user = current_user
     if @user.update(user_params)
       redirect_to root_url, notice: 'ユーザー情報の更新に成功しました'
     else
@@ -19,6 +15,10 @@ class Student::AccountsController < ApplicationController
   end
 
   private
+
+  def set_current_user
+    @user = current_user
+  end
 
   def user_params
     params.require(:user).permit(:nickname, :profile)
