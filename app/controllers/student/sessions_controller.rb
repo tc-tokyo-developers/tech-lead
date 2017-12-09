@@ -2,13 +2,12 @@ class Student::SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def callback
-    auth = request.env['omniauth.auth']
-    user = Student::User.find_by(provider: auth[:provider], uid: auth[:uid])
-    if user.blank?
-      user = Student::User.create_with_omniauth(auth)
-      redirect_to edit_student_accounts_path, notice: 'ユーザー情報を登録してください'
-    else
+    user = Student.find_from_auth_hash(auth_hash)
+    if user.present?
       redirect_to root_url, notice: 'ログインしました'
+    else
+      user = Student.create_with_omniauth(auth_hash)
+      redirect_to edit_student_accounts_path, notice: 'ユーザー情報を登録してください'
     end
     session[:user_id] = user.id
   end
@@ -16,5 +15,11 @@ class Student::SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to root_url, notice: 'ログアウトしました'
+  end
+
+  private
+
+  def auth_hash
+    request.env['omniauth.auth']
   end
 end
