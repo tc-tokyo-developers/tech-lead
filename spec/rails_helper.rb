@@ -33,7 +33,7 @@ RSpec.configure do |config|
   end
 end
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # OmniAuthのmock作成
 OmniAuth.config.test_mode = true
