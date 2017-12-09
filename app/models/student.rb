@@ -4,7 +4,7 @@ class Student < User
   }
 
   def self.create_with_omniauth(auth)
-    # TODO エラーをハンドリングする
+    # TODO: エラーをハンドリングする
     create! do |user|
       user.type_id     = :student
       user.provider    = auth[:provider]
