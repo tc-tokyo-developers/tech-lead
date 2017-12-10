@@ -1,0 +1,4 @@
+- if current_mentor
+  = link_to "Sign out", mentor_logout_path
+- else
+  = link_to "Sign in with GitHub", '/auth/github'
