@@ -9,7 +9,7 @@ class Student::SessionsController < Student::BaseController
       student = Student.create_with_omniauth(auth_hash)
       redirect_to edit_student_account_path, notice: 'ユーザー情報を登録してください'
     end
-    session[:user_id] = student.id
+    session[:student_id] = student.id
   end
 
   def destroy
