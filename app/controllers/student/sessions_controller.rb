@@ -7,7 +7,7 @@ class Student::SessionsController < ApplicationController
       redirect_to root_url, notice: 'ログインしました'
     else
       user = Student.create_with_omniauth(auth_hash)
-      redirect_to edit_student_accounts_path, notice: 'ユーザー情報を登録してください'
+      redirect_to edit_student_account_path, notice: 'ユーザー情報を登録してください'
     end
     session[:user_id] = user.id
   end

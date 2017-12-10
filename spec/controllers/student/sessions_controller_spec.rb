@@ -25,7 +25,7 @@ RSpec.describe Student::SessionsController, type: :controller do
       end
       it 'redirects to edit_student_accounts_path' do
         subject
-        expect(response).to redirect_to edit_student_accounts_path
+        expect(response).to redirect_to edit_student_account_path
       end
       it 'shows the notice flash' do
         subject

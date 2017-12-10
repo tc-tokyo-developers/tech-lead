@@ -291,11 +291,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
-<<<<<<< HEAD
-=======
   dotenv-rails
-  erb2haml
->>>>>>> install dotenv-rails
   factory_bot_rails
   faker
   haml-rails
