@@ -6,7 +6,7 @@ class Student::AccountsController < Student::BaseController
   def edit; end
 
   def update
-    @user.update!(user_params)
+    @student.update!(student_params)
     redirect_to student_account_path, notice: 'ユーザー情報の更新に成功しました'
   end
 
