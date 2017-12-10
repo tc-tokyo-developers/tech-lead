@@ -1,5 +1,5 @@
-class Student::AccountsController < ApplicationController
-  before_action :set_current_user
+class Student::AccountsController < Student::BaseController
+  before_action :set_current_student
 
   def show; end
 
@@ -12,8 +12,8 @@ class Student::AccountsController < ApplicationController
 
   private
 
-  def set_current_user
-    @user = current_user
+  def set_current_student
+    @student = current_student
   end
 
   def user_params

@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :user do
-    type_id     %i[student mentor].sample
+  factory :student do
+    type_id     :student
     provider    'github'
     uid         'foobar'
     github_name 'github_name_sample'
