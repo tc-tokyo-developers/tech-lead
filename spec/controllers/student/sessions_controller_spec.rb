@@ -1,8 +1,8 @@
 require 'rails_helper'
+# TODO: student/sessions_controllerではなくsessions_controllerが読み込まれる問題を解決したら外す
+require 'student/sessions_controller'
 
 RSpec.describe Student::SessionsController, type: :controller do
-  include OmniAuthHelper
-
   before { create(:type, name: 'student') }
 
   describe '#callback' do
