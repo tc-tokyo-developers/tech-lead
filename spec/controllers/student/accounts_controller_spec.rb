@@ -35,7 +35,7 @@ RSpec.describe Student::AccountsController, type: :controller do
       before(:each) { patch :update, params: user_params }
 
       it 'redirects to student_accounts_path' do
-        expect(response).to redirect_to student_accounts_path
+        expect(response).to redirect_to student_account_path
       end
       it 'shows the notice flash' do
         expect(flash[:notice]).to eq 'ユーザー情報の更新に成功しました'

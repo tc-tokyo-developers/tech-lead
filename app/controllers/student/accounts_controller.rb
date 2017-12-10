@@ -7,7 +7,7 @@ class Student::AccountsController < ApplicationController
 
   def update
     @user.update!(user_params)
-    redirect_to student_accounts_path, notice: 'ユーザー情報の更新に成功しました'
+    redirect_to student_account_path, notice: 'ユーザー情報の更新に成功しました'
   end
 
   private
