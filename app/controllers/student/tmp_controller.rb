@@ -1,4 +1,5 @@
 class Student::TmpController < Student::BaseController
-  def index
-  end
+  skip_before_action :authenticate_student
+
+  def index; end
 end

@@ -16,10 +16,4 @@ class Student::SessionsController < Student::BaseController
     reset_session
     redirect_to root_url, notice: 'ログアウトしました'
   end
-
-  private
-
-  def auth_hash
-    request.env['omniauth.auth']
-  end
 end

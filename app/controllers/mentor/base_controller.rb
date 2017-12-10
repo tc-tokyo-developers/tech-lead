@@ -1,5 +1,5 @@
 class Mentor::BaseController < ApplicationController
-  before_action :authenticate_mentor
+  before_action :authenticate_mentor, :set_request_type_session
 
   helper_method :current_mentor
 
@@ -15,5 +15,9 @@ class Mentor::BaseController < ApplicationController
     elsif !current_mentor
       redirect_to root_url, alert: 'ログインしてください'
     end
+  end
+
+  def set_request_type_session
+    session['request_type'] = 'mentor'
   end
 end

@@ -1,5 +1,5 @@
 class Student::BaseController < ApplicationController
-  before_action :authenticate_student
+  before_action :authenticate_student, :set_request_type_session
 
   helper_method :current_student
 
@@ -11,5 +11,9 @@ class Student::BaseController < ApplicationController
 
   def authenticate_student
     redirect_to root_url, alert: 'ログインしてください' unless current_student
+  end
+
+  def set_request_type_session
+    session['request_type'] = 'student'
   end
 end
