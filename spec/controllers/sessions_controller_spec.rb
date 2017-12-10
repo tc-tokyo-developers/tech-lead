@@ -21,14 +21,14 @@ RSpec.describe SessionsController, type: :controller do
         it 'increases the number of users' do
           expect { subject }.to change(Student, :count).by 1
         end
-        it 'assigns the requested user id to session[:user_id]' do
+        it 'assigns the requested user id to session[:student_id]' do
           subject
           new_student = Student.find_by(uid: uid)
           expect(session[:student_id]).to eq new_student.id
         end
-        it 'redirects to edit_student_accounts_path' do
+        it 'redirects to edit_student_account_path' do
           subject
-          expect(response).to redirect_to edit_student_accounts_path
+          expect(response).to redirect_to edit_student_account_path
         end
         it 'shows the notice flash' do
           subject
@@ -66,7 +66,7 @@ RSpec.describe SessionsController, type: :controller do
         end
         it 'redirects to edit_mentor_accounts_path' do
           subject
-          expect(response).to redirect_to edit_mentor_accounts_path
+          expect(response).to redirect_to edit_mentor_account_path
         end
         it 'shows the notice flash' do
           subject
