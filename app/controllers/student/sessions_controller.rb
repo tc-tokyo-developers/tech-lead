@@ -1,15 +1,15 @@
-class Student::SessionsController < ApplicationController
-  skip_before_action :authenticate_user
+class Student::SessionsController < Student::BaseController
+  skip_before_action :authenticate_student
 
   def callback
-    user = Student.find_from_auth_hash(auth_hash)
-    if user.present?
+    student = Student.find_from_auth_hash(auth_hash)
+    if student.present?
       redirect_to root_url, notice: 'ログインしました'
     else
-      user = Student.create_with_omniauth(auth_hash)
+      student = Student.create_with_omniauth(auth_hash)
       redirect_to edit_student_account_path, notice: 'ユーザー情報を登録してください'
     end
-    session[:user_id] = user.id
+    session[:user_id] = student.id
   end
 
   def destroy

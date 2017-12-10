@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Student::AccountsController, type: :controller do
   let!(:type) { create(:type, name: 'student') }
-  let(:user) { create(:user, type_id: :student) }
-  before(:each) { session[:user_id] = user.id }
+  let(:student) { create(:student) }
+  before(:each) { session[:user_id] = student.id }
 
   describe '#show' do
     before(:each) { get :show }
 
-    it 'assigns current_user to @user' do
-      expect(assigns(:user)).to eq user
+    it 'assigns current_student to @user' do
+      expect(assigns(:student)).to eq student
     end
     it 'renders the :show template' do
       expect(response).to render_template :show
@@ -19,8 +19,8 @@ RSpec.describe Student::AccountsController, type: :controller do
   describe '#edit' do
     before(:each) { get :edit }
 
-    it 'assigns current_user to @user' do
-      expect(assigns(:user)).to eq user
+    it 'assigns current_student to @user' do
+      expect(assigns(:student)).to eq student
     end
     it 'renders the :edit template' do
       expect(response).to render_template :edit
@@ -41,12 +41,12 @@ RSpec.describe Student::AccountsController, type: :controller do
         expect(flash[:notice]).to eq 'ユーザー情報の更新に成功しました'
       end
       it 'changes nickname' do
-        user.reload
-        expect(user.nickname).to eq nickname
+        student.reload
+        expect(student.nickname).to eq nickname
       end
       it 'changes profile' do
-        user.reload
-        expect(user.profile).to eq profile
+        student.reload
+        expect(student.profile).to eq profile
       end
     end
   end
