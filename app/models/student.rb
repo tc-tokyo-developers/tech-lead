@@ -3,13 +3,13 @@ class Student < User
     find_by(provider: auth_hash[:provider], uid: auth_hash[:uid])
   }
 
-  def self.create_with_omniauth(auth)
+  def self.create_with_omniauth(auth_hash)
     # TODO: エラーをハンドリングする
     create! do |user|
       user.type_id     = :student
-      user.provider    = auth[:provider]
-      user.uid         = auth[:uid]
-      user.github_name = auth[:info][:nickname]
+      user.provider    = auth_hash[:provider]
+      user.uid         = auth_hash[:uid]
+      user.github_name = auth_hash[:info][:nickname]
     end
   end
 end
