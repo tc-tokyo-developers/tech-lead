@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:each) { create(:type, name: 'student') }
+  before(:each) do
+    create(:type, name: 'student')
+    create(:type, name: 'mentor')
+  end
 
   describe 'validation' do
     context 'valid' do
       it 'is valid with nickname, profile' do
-        expect(build(:user, type_id: :student)).to be_valid
+        expect(build(:user)).to be_valid
       end
     end
 
@@ -16,15 +19,15 @@ RSpec.describe User, type: :model do
       end
 
       it 'is invalid without provider' do
-        expect(build(:user, type_id: :student, provider: nil)).not_to be_valid
+        expect(build(:user, provider: nil)).not_to be_valid
       end
 
       it 'is invalid without uid' do
-        expect(build(:user, type_id: :student, uid: nil)).not_to be_valid
+        expect(build(:user, uid: nil)).not_to be_valid
       end
 
       it 'is invalid without github_name' do
-        expect(build(:user, type_id: :student, github_name: nil)).not_to be_valid
+        expect(build(:user, github_name: nil)).not_to be_valid
       end
     end
   end

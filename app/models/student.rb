@@ -10,10 +10,10 @@ class Student < User
 
   def self.create_with_omniauth(auth_hash)
     # TODO: エラーをハンドリングする
-    create! do |user|
-      user.provider    = auth_hash[:provider]
-      user.uid         = auth_hash[:uid]
-      user.github_name = auth_hash[:info][:nickname]
+    create! do |student|
+      student.provider    = auth_hash[:provider]
+      student.uid         = auth_hash[:uid]
+      student.github_name = auth_hash[:info][:nickname]
     end
   end
 end

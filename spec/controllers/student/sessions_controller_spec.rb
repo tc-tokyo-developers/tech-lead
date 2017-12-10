@@ -21,7 +21,7 @@ RSpec.describe Student::SessionsController, type: :controller do
       it 'assigns the requested user id to session[:user_id]' do
         subject
         new_student = Student.find_by(uid: uid)
-        expect(session[:user_id]).to eq new_student.id
+        expect(session[:student_id]).to eq new_student.id
       end
       it 'redirects to edit_student_accounts_path' do
         subject
@@ -34,11 +34,11 @@ RSpec.describe Student::SessionsController, type: :controller do
     end
 
     context 'when requested user has already registered' do
-      let!(:student) { create(:student, uid: uid, nickname: nickname, type_id: :student) }
+      let!(:student) { create(:student, uid: uid, nickname: nickname) }
       before(:each) { subject }
 
       it 'assigns the requested user id to session[:user_id]' do
-        expect(session[:user_id]).to eq student.id
+        expect(session[:student_id]).to eq student.id
       end
       it 'redirects to root_url' do
         expect(response).to redirect_to root_url
@@ -50,14 +50,14 @@ RSpec.describe Student::SessionsController, type: :controller do
   end
 
   describe '#destroy' do
-    let(:student) { build(:student, type_id: :student) }
+    let(:student) { build(:student) }
     before(:each) do
-      session[:user_id] = student.id
+      session[:student_id] = student.id
       get :destroy
     end
 
     it 'resets sessions' do
-      expect(session[:user_id]).to eq nil
+      expect(session[:student_id]).to eq nil
     end
     it 'redirects to root_url' do
       expect(response).to redirect_to root_url

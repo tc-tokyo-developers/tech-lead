@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Student::AccountsController, type: :controller do
   let!(:type) { create(:type, name: 'student') }
   let(:student) { create(:student) }
-  before(:each) { session[:user_id] = student.id }
+  before(:each) { session[:student_id] = student.id }
 
   describe '#show' do
     before(:each) { get :show }
@@ -31,8 +31,8 @@ RSpec.describe Student::AccountsController, type: :controller do
     context 'when update success' do
       let(:nickname)    { Faker::Internet.user_name }
       let(:profile)     { Faker::Lorem.sentence }
-      let(:user_params) { { user: { nickname: nickname, profile: profile } } }
-      before(:each) { patch :update, params: user_params }
+      let(:student_params) { { student: { nickname: nickname, profile: profile } } }
+      before(:each) { patch :update, params: student_params }
 
       it 'redirects to student_accounts_path' do
         expect(response).to redirect_to student_account_path
