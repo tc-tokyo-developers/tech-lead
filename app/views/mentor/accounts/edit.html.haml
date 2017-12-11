@@ -1,6 +1,6 @@
-= form_for ['student', @student], url: student_account_path do |f|
+= form_for ['mentor', @mentor], url: mentor_account_path do |f|
   %div
-    = @user.github_name
+    = @mentor.github_name
   %div
     = f.label :nickname
     = f.text_field :nickname
@@ -8,4 +8,4 @@
     = f.label :profile
     = f.text_field :profile
   = f.submit '更新する'
-= link_to 'キャンセル', student_account_path
+= link_to 'キャンセル', mentor_account_path
