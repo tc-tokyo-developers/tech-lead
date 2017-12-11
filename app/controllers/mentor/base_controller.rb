@@ -10,10 +10,10 @@ class Mentor::BaseController < ApplicationController
   end
 
   def authenticate_mentor
-    if !verified
-      redirect_to mentor_root_url, alert: 'アカウントが認証されていません'
-    elsif !current_mentor
+    if !current_mentor
       redirect_to mentor_root_url, alert: 'ログインしてください'
+    elsif !current_mentor.verified
+      redirect_to mentor_root_url, alert: 'アカウントが認証されていません'
     end
   end
 
