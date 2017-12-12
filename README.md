@@ -1,5 +1,7 @@
 # TECH::LEAD
 
+[![Build Status](https://travis-ci.org/tc-tokyo-developers/tech-lead.svg?branch=master)](https://travis-ci.org/tc-tokyo-developers/tech-lead)
+
 ***
 ## Description
 
