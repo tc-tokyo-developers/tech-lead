@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: tech-lead_development
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  username: travis
+  database: tech-lead_test
+
+production:
+  <<: *default
+  database: tech-lead_production
+  username: tech-lead
+  password: <%= ENV['TECH-LEAD_DATABASE_PASSWORD'] %>
