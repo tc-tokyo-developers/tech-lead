@@ -9,3 +9,6 @@ before_script:
 
 script:
   - bundle exec rspec
+
+notifications:
+  slack: techcamp-tokyo-st:O20NFqzyKle2viWwgyMm6yzf
