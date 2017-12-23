@@ -6,7 +6,8 @@ class Mentor::BaseController < ApplicationController
   private
 
   def current_mentor
-    @current_mentor ||= Mentor.find(session[:mentor_id]) if session[:mentor_id]
+    return unless session[:mentor_id]
+    @current_mentor ||= Mentor.find(session[:mentor_id])
   end
 
   def authenticate_mentor

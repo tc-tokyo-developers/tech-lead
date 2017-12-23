@@ -6,7 +6,8 @@ class Student::BaseController < ApplicationController
   private
 
   def current_student
-    @current_student ||= Student.find(session[:student_id]) if session[:student_id]
+    return unless session[:student_id]
+    @current_student ||= Student.find(session[:student_id])
   end
 
   def authenticate_student

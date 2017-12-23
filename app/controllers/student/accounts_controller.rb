@@ -16,7 +16,7 @@ class Student::AccountsController < Student::BaseController
     @student = current_student
   end
 
-  def user_params
-    params.require(:user).permit(:nickname, :profile)
+  def student_params
+    params.require(:student).permit(:nickname, :profile)
   end
 end
