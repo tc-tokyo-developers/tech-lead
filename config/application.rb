@@ -34,5 +34,12 @@ module TechLead
       # テストデータをfactory_botで生成する
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+    # Bulletの設定
+    config.after_initialize do
+      Bullet.enable = true
+      Bullet.bullet_logger = true
+      Bullet.console = true
+      Bullet.add_footer = true
+    end
   end
 end
