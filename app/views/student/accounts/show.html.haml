@@ -1,7 +1,7 @@
 %div
   = @user.github_name
 %div
-  = @user.nickname.present? ? @user.nickname : 'ニックネームが設定されていません'
+  = @user.nickname.presence || 'ニックネームが設定されていません'
 %div
-  = @user.profile.present? ? @user.profile : 'プロフィールが設定されていません'
+  = @user.profile.presence || 'プロフィールが設定されていません'
 = link_to '編集', edit_student_account_path
