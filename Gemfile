@@ -28,7 +28,7 @@ gem 'omniauth-github'
 # .env
 gem 'dotenv-rails'
 
-group :developement, :test do
+group :development, :test do
   gem 'byebug', platform: :mri
 
   # RSpec
