@@ -60,9 +60,6 @@ group :development do
 
   # 速度計測
   gem 'rack-mini-profiler'
-
-  # haml変換
-  gem 'erb2haml'
 end
 
 # windows対応

@@ -12,3 +12,6 @@
 
 # simpleCovが生成するcoverageディレクトリ
 /coverage
+
+# vendor/bundle以下にbundle installするため
+/vendor/bundle
