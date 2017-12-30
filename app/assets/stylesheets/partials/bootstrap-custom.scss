@@ -1,11 +1,11 @@
 // ここからnabverです
 
 .chat{
+  display: inline;
   width: 35px;
   height: 35px;
   background-image: url(chat.svg);
   background-repeat: no-repeat;
-  display: inline;
   background-position: center;
   background-size: contain;
 }
