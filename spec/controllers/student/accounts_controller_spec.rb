@@ -24,7 +24,7 @@ RSpec.describe Student::AccountsController, type: :controller do
     describe '#show' do
       before(:each) { get :show }
 
-      it 'assigns current_student to @user' do
+      it 'assigns current_student to @student' do
         expect(assigns(:student)).to eq student
       end
       it 'renders the :show template' do
@@ -35,7 +35,7 @@ RSpec.describe Student::AccountsController, type: :controller do
     describe '#edit' do
       before(:each) { get :edit }
 
-      it 'assigns current_student to @user' do
+      it 'assigns current_student to @student' do
         expect(assigns(:student)).to eq student
       end
       it 'renders the :edit template' do
