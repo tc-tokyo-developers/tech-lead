@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'sessions/callback'
+
+  get 'auth/:provider/callback' => 'sessions#callback'
+
+  namespace :mentor do
+    get 'logout' => 'sessions#destroy'
+    resource :account, only: %i[show edit update]
+    root 'tmp#index'
+  end
+
+  namespace :student, path: '' do
+    get 'logout' => 'sessions#destroy'
+    resource :account, only: %i[show edit update]
+  end
+
+  root 'student/tmp#index'
 end

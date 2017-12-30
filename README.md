@@ -1,5 +1,7 @@
 # TECH::LEAD
 
+[![Build Status](https://travis-ci.org/tc-tokyo-developers/tech-lead.svg?branch=master)](https://travis-ci.org/tc-tokyo-developers/tech-lead)
+
 ***
 ## Description
 
@@ -14,7 +16,7 @@ mysql2 0.4.10
 ```sh
 $ git clone git@github.com:tc-tokyo-developers/tech-lead.git
 
-$ bundle
+$ bundle install --path vendor/bundle
 
 $ rails db:create
 
