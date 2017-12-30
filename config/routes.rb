@@ -15,8 +15,12 @@ Rails.application.routes.draw do
     resource :account, only: %i[show edit update]
   end
 
+<<<<<<< HEAD
   root 'student/tmp#index'
 =======
   root "top#index"
 >>>>>>> 029be6f... Create top_controller
+=======
+  root 'top#index'
+>>>>>>> 0508d75... modify header styles
 end
