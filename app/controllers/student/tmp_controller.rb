@@ -1,6 +1,5 @@
-class Student::TmpController < ApplicationController
-  skip_before_action :authenticate_user
+class Student::TmpController < Student::BaseController
+  skip_before_action :authenticate_student
 
-  def index
-  end
+  def index; end
 end

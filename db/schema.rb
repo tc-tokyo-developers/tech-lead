@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207105949) do
+ActiveRecord::Schema.define(version: 20171210084912) do
 
   create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -19,14 +19,15 @@ ActiveRecord::Schema.define(version: 20171207105949) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "type_id",                   null: false
-    t.string   "provider",                  null: false
-    t.string   "uid",                       null: false
-    t.string   "github_name",               null: false
+    t.integer  "type_id",                                   null: false
+    t.string   "provider",                                  null: false
+    t.string   "uid",                                       null: false
+    t.string   "github_name",                               null: false
     t.string   "nickname"
     t.text     "profile",     limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "verified",                  default: false, null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.index ["type_id"], name: "index_users_on_type_id", using: :btree
   end
 
