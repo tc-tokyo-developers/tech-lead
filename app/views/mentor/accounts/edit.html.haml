@@ -1,0 +1,11 @@
+= form_for ['mentor', @mentor], url: mentor_account_path do |f|
+  %div
+    = @mentor.github_name
+  %div
+    = f.label :nickname
+    = f.text_field :nickname
+  %div
+    = f.label :profile
+    = f.text_field :profile
+  = f.submit '更新する'
+= link_to 'キャンセル', mentor_account_path

@@ -1,0 +1,7 @@
+%div
+  = @mentor.github_name
+%div
+  = @mentor.nickname.presence || 'ニックネームが設定されていません'
+%div
+  = @mentor.profile.presence || 'プロフィールが設定されていません'
+= link_to '編集', edit_mentor_account_path
