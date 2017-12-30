@@ -32,3 +32,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+
+# OmniAuthのmock作成
+OmniAuth.config.test_mode = true

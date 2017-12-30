@@ -21,7 +21,14 @@ gem 'rails-i18n'
 # Haml
 gem 'haml-rails'
 
-group :developement, :test do
+# Gibhub認証
+gem 'omniauth'
+gem 'omniauth-github'
+
+# .env
+gem 'dotenv-rails'
+
+group :development, :test do
   gem 'byebug', platform: :mri
 
   # RSpec
@@ -43,6 +50,9 @@ group :developement, :test do
 
   # デバッグ
   gem 'pry-rails'
+
+  # n+1問題検知
+  gem 'bullet'
 end
 
 group :development do
@@ -50,9 +60,6 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
-  # n+1問題検知
-  gem 'bullet'
 
   # エラー画面変更
   gem 'better_errors'
