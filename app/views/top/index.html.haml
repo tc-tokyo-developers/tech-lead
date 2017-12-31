@@ -10,7 +10,7 @@
         .knowledge-outline.w-100.py-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate.
       .card-footer.mx-0.pt-3.d-flex.justify-content-between
         = link_to root_url, class: 'd-inline-block d-flex justify-content-start knowledge-link' do
-          %img.rounded-circle{ width: '35px;', height: '35px;', src: 'http://placehold.it/35x35' }
+          = image_tag asset_path('person.png'), class: 'rounded-circle resize'
           %p.px-1.my-auto.text-dark 水田涼介
         .d-inline-block.d-flex.justify-content-start
           %p.px-1.my-auto.text-dark 10いいね

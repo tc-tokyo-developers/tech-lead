@@ -1,6 +1,5 @@
 // ここからnabverです
-
-.chat{
+.chat {
   display: inline;
   width: 35px;
   height: 35px;
@@ -10,7 +9,7 @@
   background-size: contain;
 }
 
-.mypage{
+.mypage {
   width: 35px;
   height: 35px;
   background-repeat: no-repeat;
@@ -20,39 +19,45 @@
 }
 
 // ここからcontainerです
-
-.shadow:hover{
+.shadow:hover {
   transition: all .25s ease;
-  box-shadow: -1px 5px 10px 0px rgba(0,0,0,0.4);
+  box-shadow: -1px 5px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
-.navcolor{
+.navcolor {
   background-color: #2196F3;
 }
+
 .dropdown-menu-right {
   right: 0;
   left: auto;
   transform-origin: 100% 0;
 }
 
-.knowledge-link{
+.knowledge-link {
   text-decoration: none;
-  &:hover{
-    text-decoration: none;
+  &:hover {
+      text-decoration: none;
   }
 }
 
-.knowledge-title{
+.knowledge-title {
   color: #757575;
   border: none;
-  &:hover{
-    color: #424242;
+  &:hover {
+      color: #424242;
   }
 }
 
-.knowledge-outline{
+.knowledge-outline {
   font-size: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.resize {
+  width: 35px;
+  height: 35px;
+  background-image: contain;
 }

@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     resource :account, only: %i[show edit update]
   end
 
-  root "top#index"
+  root 'top#index'
 end
