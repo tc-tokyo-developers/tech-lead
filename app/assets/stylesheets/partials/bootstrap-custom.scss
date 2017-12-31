@@ -10,10 +10,10 @@
 }
 
 .mypage {
+  display: inline-block;
   width: 35px;
   height: 35px;
   background-repeat: no-repeat;
-  display: inline-block;
   background-position: center;
   background-size: contain;
 }
@@ -37,15 +37,15 @@
 .knowledge-link {
   text-decoration: none;
   &:hover {
-      text-decoration: none;
+    text-decoration: none;
   }
 }
 
 .knowledge-title {
-  color: #757575;
   border: none;
+  color: #757575;
   &:hover {
-      color: #424242;
+    color: #424242;
   }
 }
 
