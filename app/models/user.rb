@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :messages
   enum type_id: { student: 1, mentor: 2 }
 
   validates :type_id, :provider, :uid, :github_name, presence: true

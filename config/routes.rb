@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     resource :account, only: %i[show edit update]
   end
 
+  resources :messages, only: [:index, :create]
+
   root 'top#index'
 end
