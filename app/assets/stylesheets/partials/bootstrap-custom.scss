@@ -1,0 +1,63 @@
+// ここからnabverです
+.chat {
+  display: inline;
+  width: 35px;
+  height: 35px;
+  background-image: url(chat.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.mypage {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+// ここからcontainerです
+.shadow:hover {
+  transition: all .25s ease;
+  box-shadow: -1px 5px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.navcolor {
+  background-color: #2196F3;
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+  transform-origin: 100% 0;
+}
+
+.knowledge-link {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.knowledge-title {
+  border: none;
+  color: #757575;
+  &:hover {
+    color: #424242;
+  }
+}
+
+.knowledge-outline {
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resize {
+  width: 35px;
+  height: 35px;
+  background-image: contain;
+}

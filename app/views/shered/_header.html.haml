@@ -1,0 +1,26 @@
+%nav.navbar.sticky-top.navbar-light.navcolor.justify-content-between
+  = link_to root_url, class: 'navbar-brand' do
+    .h2.text-white TECH::LEAD
+  %button.navbar-toggler{ type: 'button', 'data-toggle' => 'collapse', 'data-target' => '#navbarNav', 'aria-controls' => 'navbarNav', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
+    %span.navbar-toggler-icon
+  .collapse.navbar-collapse#navbarNav
+    .navbar-brand
+      = # TODO url変更する
+      = link_to '質問する', root_url, class: 'question nav-link text-white'
+    .navbar-brand
+      = # TODO url変更する
+      = link_to '', root_url, class: 'chat nav-link '
+    .navbar-brand.dropdown
+      = # TODO url変更する
+      = link_to root_url, class: 'btn btn-secondary dropdown-toggle',
+                          id: 'dropdown-menu-button',
+                          'aria-expanded' => 'false',
+                          'aria-haspopup' => 'true',
+                          'data-toggle' => 'dropdown' do
+        .mypage{ style: "background-image: url(#{asset_path('face.svg')});" }
+      .dropdown-menu.dropdown-menu-right{ 'aria-labelledby' => 'dropdown-menu-button' }
+        = # TODO url変更する
+        = link_to 'Action', root_url, class: 'dropdown-item'
+        = link_to 'Another Action', root_url, class: 'dropdown-item'
+        = link_to 'Something else here', root_url, class: 'dropdown-item'
+
