@@ -3,6 +3,7 @@ class CreateKnowledges < ActiveRecord::Migration[5.0]
     create_table :knowledges do |t|
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       t.string :title, null: false
       t.text :content, null: false
       t.references :user, foreign_key: true
@@ -14,6 +15,11 @@ class CreateKnowledges < ActiveRecord::Migration[5.0]
       t.text :content, null: false
       t.references :user, foreign_key: true
 >>>>>>> b7c9076... dbを作った
+=======
+      t.string :title, null: false
+      t.text :content, null: false
+      t.references :user, foreign_key: true
+>>>>>>> a1d65b1ee08eed3de9cf2308d83cae731234e37e
       t.timestamps
     end
   end
