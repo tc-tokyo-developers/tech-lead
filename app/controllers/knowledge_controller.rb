@@ -1,2 +1,0 @@
-class KnowledgeController < ApplicationController
-end
