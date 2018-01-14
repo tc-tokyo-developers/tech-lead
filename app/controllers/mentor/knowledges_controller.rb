@@ -1,4 +1,4 @@
-class Mentor::KnowledgesController < ApplicationController
+class Mentor::KnowledgesController < Mentor::BaseController
   def index
 
   end
