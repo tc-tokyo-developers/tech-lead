@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   namespace :mentor do
     get 'logout' => 'sessions#destroy'
     resource :account, only: %i[show edit update]
-    resource :knowledges
+    resources :knowledges
     root 'tmp#index'
   end
 
   namespace :student, path: '' do
     get 'logout' => 'sessions#destroy'
     resource :account, only: %i[show edit update]
-    resource :knowledges, only: %i[index show]
+    resources :knowledges, only: %i[index show]
   end
 
   root 'top#index'
