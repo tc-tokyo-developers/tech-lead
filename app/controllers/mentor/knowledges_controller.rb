@@ -6,7 +6,6 @@ class Mentor::KnowledgesController < Mentor::BaseController
   end
 
   def show
-    # とりあえずパースができてるか確認したいので, 適当に表示
     @knowledge = Knowledge.find(params[:id])
   end
 
