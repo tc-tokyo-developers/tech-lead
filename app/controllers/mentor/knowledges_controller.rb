@@ -2,12 +2,12 @@ class Mentor::KnowledgesController < Mentor::BaseController
   skip_before_action :authenticate_mentor
 
   def index
-
+    @knowledges = Knowledge.order('id ASC')
   end
 
   def show
     # とりあえずパースができてるか確認したいので, 適当に表示
-    @knowledge = Knowledge.find(4)
+    @knowledge = Knowledge.find(params[:id])
   end
 
   def create
