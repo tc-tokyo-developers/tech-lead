@@ -13,7 +13,9 @@ class Mentor::KnowledgesController < Mentor::BaseController
     Knowledge.create(knowledge_params)
   end
 
-  def new; end
+  def new
+    @knowledge = Knowledge.new
+  end
 
   def edit
 
@@ -29,6 +31,6 @@ class Mentor::KnowledgesController < Mentor::BaseController
 
   private
   def knowledge_params
-    params.permit(:title, :content).merge(user_id: current_mentor.id)
+    params.require(:knowledge).permit(:title, :content).merge(user_id: current_mentor.id)
   end
 end

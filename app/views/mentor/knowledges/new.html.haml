@@ -1,4 +1,4 @@
-= form_tag('/mentor/knowledges', method: :post) do
-  %input{type: "text", placeholder: "title", name: "title"}
-  %textarea{colos: "100", row: "100", name: "content"}
-  %input{type: "submit", value: "SENT"}
+= form_for ['knowledge', @knowledge], url: '/mentor/knowledges' do |f|
+  = f.text_field :title, placeholder: "title"
+  = f.text_area :content, colos: "100", row: "100"
+  = f.submit '送信'
