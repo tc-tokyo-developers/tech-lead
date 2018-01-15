@@ -28,6 +28,9 @@ gem 'omniauth-github'
 # .env
 gem 'dotenv-rails'
 
+# markdownパーサー
+gem 'redcarpet'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 
@@ -71,6 +74,3 @@ end
 
 # windows対応
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# markdownパーサー
-gem 'redcarpet'
