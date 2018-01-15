@@ -71,3 +71,6 @@ end
 
 # windows対応
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# markdownパーサー
+gem 'redcarpet'
