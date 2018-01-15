@@ -7,7 +7,7 @@ class Mentor::KnowledgesController < Mentor::BaseController
 
   def show
     # とりあえずパースができてるか確認したいので, 適当に表示
-    @knowledge = Knowledge.find(2)
+    @knowledge = Knowledge.find(4)
   end
 
   def create
