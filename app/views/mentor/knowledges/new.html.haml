@@ -1,4 +1,4 @@
-= form_for ['knowledge', @knowledge], url: '/mentor/knowledges' do |f|
+= form_for ['mentor', @knowledge] do |f|
   = f.text_field :title, placeholder: "title"
   = f.text_area :content, colos: "100", row: "100"
   = f.submit '送信'
