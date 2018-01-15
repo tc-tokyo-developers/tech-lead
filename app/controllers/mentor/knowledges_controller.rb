@@ -4,19 +4,25 @@ class Mentor::KnowledgesController < Mentor::BaseController
   def index
 
   end
+
   def show
 
   end
+
   def create
     Knowledge.create(knowledge_params)
   end
+
   def new; end
+
   def edit
 
   end
+
   def update
 
   end
+
   def destroy
 
   end
