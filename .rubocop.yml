@@ -1,5 +1,6 @@
 # 無視するディレクトリ
 AllCops:
+  TargetRubyVersion: 2.5
   Exclude:
     - bin/*
     - db/**/*

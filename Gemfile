@@ -67,6 +67,9 @@ group :development do
 
   # 速度計測
   gem 'rack-mini-profiler'
+
+  # schemaとrouting情報を表示
+  gem 'annotate'
 end
 
 # windows対応
