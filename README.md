@@ -23,7 +23,12 @@ $ rails db:create
 $ rails db:migrate
 
 $ rails db:seed
+# これでtypeをDBに登録します
+
+$ cp .env.sample .env
 ```
+
+GithubOAuthのGITHUB_CLIENT_IDとGITHUB_CLIENT_SECRETを登録する
 
 ## Development
 
@@ -43,6 +48,8 @@ $ git push origin ブランチ名
 
 4. [WIP]を外してレビュー依頼
 
-***
+#### ルーティングの追加、モデルの追加等の実行後に実行してください
 
-## DB設計
+```sh
+$ annotate
+```
