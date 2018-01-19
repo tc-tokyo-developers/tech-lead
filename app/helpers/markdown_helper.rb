@@ -1,10 +1,15 @@
 module MarkdownHelper
-  def markdown(text)
-    unless @markdown
-      renderer = Redcarpet::Render::HTML.new
-      @markdown = Redcarpet::Markdown.new(renderer)
-    end
+  def parse(text)
+    markdown.render(text).html_safe
+  end
 
-    @markdown.render(text).html_safe
+  private
+
+  def renderer
+    @renderer ||= Redcarpet::Render::HTML.new
+  end
+
+  def markdown
+    @markdown ||= Redcarpet::Markdown.new(renderer)
   end
 end
