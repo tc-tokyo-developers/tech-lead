@@ -2,12 +2,10 @@
 #
 # Table name: knowledges
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)      not null
-#  content    :text(65535)      not null
-#  user_id    :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id      :integer          not null, primary key
+#  title   :string(255)      not null
+#  content :text(65535)      not null
+#  user_id :integer          not null
 #
 # Indexes
 #

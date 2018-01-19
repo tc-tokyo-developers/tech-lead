@@ -3,7 +3,7 @@ class CreateKnowledges < ActiveRecord::Migration[5.0]
     create_table :knowledges do |t|
       t.string :title, null: false
       t.text :content, null: false
-      t.references :user, foreign_key: true
+      t.references :user, foreign_key: true, null: false
       end
   end
 end
