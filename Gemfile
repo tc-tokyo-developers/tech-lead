@@ -31,6 +31,9 @@ gem 'dotenv-rails'
 # markdownパーサー
 gem 'redcarpet'
 
+# jquery
+gem 'jquery-rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 
