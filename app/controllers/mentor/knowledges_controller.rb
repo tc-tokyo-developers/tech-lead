@@ -22,7 +22,8 @@ class Mentor::KnowledgesController < Mentor::BaseController
   end
 
   def update
-    Knowledge.find(params[:id]).updata(knowledge_params)
+    @knowledge = Knowledge.find(params[:id])
+    @knowledge.updata(knowledge_params)
   end
 
   def destroy
