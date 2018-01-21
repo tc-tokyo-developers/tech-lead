@@ -1,5 +1,5 @@
 module MarkdownHelper
-  def parse(text)
+  def parse_markdown(text)
     markdown.render(text).html_safe
   end
 
