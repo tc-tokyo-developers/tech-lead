@@ -18,11 +18,11 @@ class Mentor::KnowledgesController < Mentor::BaseController
   end
 
   def edit
-
+    @knowledge = Knowledge.find(params[:id])
   end
 
   def update
-
+    Knowledge.find(params[:id]).updata(knowledge_params)
   end
 
   def destroy
