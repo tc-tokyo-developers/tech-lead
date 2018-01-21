@@ -20,7 +20,7 @@
 #                      GET   /messages(.:format)                messeges#show
 # 
 
-Rails.application.routes.draw do
+Rails.application.routes.draw do  
   get 'sessions/callback'
 
   get 'auth/:provider/callback' => 'sessions#callback'
@@ -28,17 +28,16 @@ Rails.application.routes.draw do
   namespace :mentor do
     get 'logout' => 'sessions#destroy'
     resource :account, only: %i[show edit update]
-    root 'tmp#index'
+    resources :chat_groups, only: :index do
+      resources :messages, only: %i[index create]
+    end
   end
 
   namespace :student, path: '' do
     get 'logout' => 'sessions#destroy'
     resource :account, only: %i[show edit update]
+    resources :messages, only: %i[index create]
   end
 
-  resources :messages, only: [:index, :create]
-
   root 'top#index'
-
-  get 'messages' => 'messeges#show'
 end

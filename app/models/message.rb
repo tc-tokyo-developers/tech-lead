@@ -20,7 +20,6 @@
 #
 
 class Message < ApplicationRecord
-  belongs_to :chat_group
   belongs_to :user
-  
+  belongs_to :user, foreign_key: :chat_group_id
 end
