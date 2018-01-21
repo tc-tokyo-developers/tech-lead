@@ -14,7 +14,10 @@
 #      student_account GET   /account(.:format)                 student/accounts#show
 #                      PATCH /account(.:format)                 student/accounts#update
 #                      PUT   /account(.:format)                 student/accounts#update
+#             messages GET   /messages(.:format)                messages#index
+#                      POST  /messages(.:format)                messages#create
 #                 root GET   /                                  top#index
+#                      GET   /messages(.:format)                messeges#show
 # 
 
 Rails.application.routes.draw do
