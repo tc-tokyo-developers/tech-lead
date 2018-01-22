@@ -2,7 +2,7 @@ class Mentor::KnowledgesController < Mentor::BaseController
   skip_before_action :authenticate_mentor
 
   def index
-    @knowledges = Knowledge.all
+    @knowledges = Knowledge.order("created_at desc")
   end
 
   def show
