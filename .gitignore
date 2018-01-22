@@ -21,3 +21,6 @@
 
 # rubymineの設定ファイル
 .idea/
+
+# vscodeの設定ファイル
+.vscode/
