@@ -1,3 +1,2 @@
-class ChatGroup < ApplicationRecord
-  has_many :messages
+class ChatGroup < Student
 end
