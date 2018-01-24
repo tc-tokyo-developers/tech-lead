@@ -1,0 +1,8 @@
+-# .message
+-#   = render @messages
+
+-# = form_for @message, url: mentor_chat_group_messages_path(@chat_group) do |f|
+= form_for ['mentor', @chat_group, @message] do |f|
+  %div
+    = f.text_area :content
+  = f.submit '投稿'

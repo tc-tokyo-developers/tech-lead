@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   namespace :mentor do
     get 'logout' => 'sessions#destroy'
     resource :account, only: %i[show edit update]
-    resources :chat_groups, only: :index do
-      resources :messages, only: %i[index create]
+    resources :chat_groups, only: %i[index show] do
+      resources :messages, only: :create
     end
+    root 'tmp#index'
   end
 
   namespace :student, path: '' do
