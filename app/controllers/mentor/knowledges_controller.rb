@@ -10,15 +10,16 @@ class Mentor::KnowledgesController < Mentor::BaseController
   end
 
   def create
-    Knowledge.create(knowledge_params)
+    @knowledge = Knowledge.new
+    if params[:commit] == 'ajax'
+      render text: ajax_action
+    else
+      Knowledge.create(knowledge_params)
+    end
   end
 
   def new
     @knowledge = Knowledge.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def edit
@@ -33,6 +34,11 @@ class Mentor::KnowledgesController < Mentor::BaseController
   def destroy; end
 
   private
+  def ajax_action
+    renderer = Redcarpet::Render::HTML.new
+    markdown = Redcarpet::Markdown.new(renderer)
+    markdown.render(params.require(:knowledge)[:content]).html_safe
+  end
 
   def knowledge_params
     params.require(:knowledge)
