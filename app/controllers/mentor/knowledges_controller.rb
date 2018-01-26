@@ -7,6 +7,9 @@ class Mentor::KnowledgesController < Mentor::BaseController
 
   def show
     @knowledge = Knowledge.find(params[:id])
+    unless params[:user_id].blank?
+      #parseした結果を返す.
+    end
   end
 
   def create
@@ -26,9 +29,7 @@ class Mentor::KnowledgesController < Mentor::BaseController
     @knowledge.updata(knowledge_params)
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
   private
 
