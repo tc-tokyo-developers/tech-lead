@@ -66,7 +66,6 @@ group :development do
 
   # エラー画面変更
   gem 'better_errors'
-  gem 'binding_of_caller'
 
   # 速度計測
   gem 'rack-mini-profiler'
