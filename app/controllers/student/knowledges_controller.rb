@@ -8,3 +8,4 @@ class Student::KnowledgesController < ApplicationController
   end
 end
 
+
