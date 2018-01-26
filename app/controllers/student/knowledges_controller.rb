@@ -6,5 +6,5 @@ class Student::KnowledgesController < ApplicationController
   def show
     @knowledge = Knowledge.find(params[:id])
   end
-
 end
+

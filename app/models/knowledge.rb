@@ -17,4 +17,8 @@
 #
 
 class Knowledge < ApplicationRecord
+  validates :id, presence: true, uniqueness: true
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :user_id, presence: true
 end
