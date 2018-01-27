@@ -1,7 +1,7 @@
 = form_for ['mentor', @knowledge], remote: true do |f|
-  = f.text_field :title, placeholder: "title"
-  = f.text_area :content, cols: "100", row: "100"
+  = f.text_field :title, placeholder: 'title'
+  = f.text_area :content, cols: "100", row: '100'
   = f.submit '送信'
-  = f.submit 'ajax', id: "ajax"
+  = f.submit 'ajax', id: 'ajax'
 #preview
 

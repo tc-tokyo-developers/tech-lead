@@ -35,6 +35,7 @@ class Mentor::KnowledgesController < Mentor::BaseController
   def destroy; end
 
   private
+
   def ajax_action
     renderer = Redcarpet::Render::HTML.new
     markdown = Redcarpet::Markdown.new(renderer)
@@ -42,10 +43,8 @@ class Mentor::KnowledgesController < Mentor::BaseController
   end
 
   def knowledge_params
-    binding.pry
     params.require(:knowledge)
           .permit(:title, :content)
           .merge(user_id: current_mentor.id)
   end
-
 end
