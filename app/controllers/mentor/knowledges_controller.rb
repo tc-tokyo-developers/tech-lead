@@ -45,4 +45,5 @@ class Mentor::KnowledgesController < Mentor::BaseController
           .permit(:title, :content)
           .merge(user_id: current_mentor.id)
   end
+
 end

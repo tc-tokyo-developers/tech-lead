@@ -31,6 +31,9 @@ gem 'dotenv-rails'
 # markdownパーサー
 gem 'redcarpet'
 
+# ページネーション
+gem 'kaminari'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 
