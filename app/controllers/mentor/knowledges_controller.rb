@@ -1,8 +1,9 @@
 class Mentor::KnowledgesController < Mentor::BaseController
   skip_before_action :authenticate_mentor
+  PAGE = 3
 
   def index
-    @knowledges = Knowledge.order('created_at desc')
+    @knowledges = Knowledge.page(params[:page]).per(PAGE)
   end
 
   def show
@@ -41,6 +42,7 @@ class Mentor::KnowledgesController < Mentor::BaseController
   end
 
   def knowledge_params
+    binding.pry
     params.require(:knowledge)
           .permit(:title, :content)
           .merge(user_id: current_mentor.id)
