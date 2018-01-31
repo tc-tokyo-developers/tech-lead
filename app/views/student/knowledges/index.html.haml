@@ -1,3 +1,3 @@
 = @knowledges.each do |knowledge|
   %div
-    = link_to "#{knowledge.title}", mentor_knowledge_path(knowledge)
+    = link_to knowledge.title, mentor_knowledge_path(knowledge)
