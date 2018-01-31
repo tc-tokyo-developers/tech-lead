@@ -1,4 +1,4 @@
 - @knowledges.each do |knowledge|
   %p
-    = link_to "#{knowledge.title}", mentor_knowledge_path(knowledge)
+    = link_to knowledge.title, mentor_knowledge_path(knowledge)
 = paginate @knowledges
