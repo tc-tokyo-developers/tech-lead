@@ -1,9 +1,10 @@
 $(document).ready(function() {
-    $('#ajax').hide();
+    $('#knowledge_create_ajax').hide();
     $('#knowledge_content').keyup(function () {
-        $('#ajax').click();
+        $('#knowledge_create_ajax').click();
     });
     $('form').on('ajax:error', function(event, results) {
+        console.log(results);
         $('#preview').html(results.responseText);
     });
 });

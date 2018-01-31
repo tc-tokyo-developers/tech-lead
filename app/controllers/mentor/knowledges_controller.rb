@@ -1,5 +1,5 @@
 class Mentor::KnowledgesController < Mentor::BaseController
-  skip_before_action :authenticate_mentor
+  skip_before_action :authenticate_mentor, if: proc { current_mentor}
   PAGE = 3
 
   def index
@@ -12,10 +12,11 @@ class Mentor::KnowledgesController < Mentor::BaseController
 
   def create
     @knowledge = Knowledge.new
-    if params[:commit] == 'ajax'
-      render text: ajax_action
+    if params[:commit] == 'ajax_params'
+      render text: view_context.parse_markdown(params[:knowledge][:content])
     else
       Knowledge.create(knowledge_params)
+      redirect_to :action => "index"
     end
   end
 
@@ -35,12 +36,6 @@ class Mentor::KnowledgesController < Mentor::BaseController
   def destroy; end
 
   private
-
-  def ajax_action
-    renderer = Redcarpet::Render::HTML.new
-    markdown = Redcarpet::Markdown.new(renderer)
-    markdown.render(params.require(:knowledge)[:content]).html_safe
-  end
 
   def knowledge_params
     params.require(:knowledge)
