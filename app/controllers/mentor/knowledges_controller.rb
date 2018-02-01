@@ -16,7 +16,7 @@ class Mentor::KnowledgesController < Mentor::BaseController
       render text: view_context.parse_markdown(params[:knowledge][:content])
     else
       Knowledge.create(knowledge_params)
-      redirect_to :action => "index"
+      redirect_to action: "index"
     end
   end
 
