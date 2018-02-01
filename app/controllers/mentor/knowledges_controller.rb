@@ -1,5 +1,5 @@
 class Mentor::KnowledgesController < Mentor::BaseController
-  skip_before_action :authenticate_mentor, if: proc { current_mentor}
+  skip_before_action :authenticate_mentor, if: proc {current_mentor}
   PAGE = 3
 
   def index
