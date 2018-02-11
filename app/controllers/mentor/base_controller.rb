@@ -6,8 +6,9 @@ class Mentor::BaseController < ApplicationController
   private
 
   def current_mentor
-    return unless session[:mentor_id]
-    @current_mentor ||= Mentor.find(session[:mentor_id])
+    mentor_id = cookies.signed[:mentor_id]
+    return if mentor_id.blank?
+    @current_mentor ||= Mentor.find(mentor_id)
   end
 
   def authenticate_mentor

@@ -3,12 +3,17 @@ require 'rails_helper'
 RSpec.describe Student::AccountsController, type: :controller do
   let!(:type) { create(:type, name: 'student') }
   let(:student) { create(:student) }
-  before(:each) { session[:student_id] = student.id }
+  before(:each) do
+    cookies.permanent.signed[:student_id] = {
+      value: student.id,
+      expires: 30.days.from_now
+    }
+  end
 
   # before_actionは全てのアクションでテストする必要ないと判断
   context 'when mentor does not login' do
     before(:each) do
-      session[:student_id] = nil
+      cookies.delete(:student_id)
       get :show
     end
 

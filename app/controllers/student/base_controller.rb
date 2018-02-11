@@ -6,8 +6,9 @@ class Student::BaseController < ApplicationController
   private
 
   def current_student
-    return unless session[:student_id]
-    @current_student ||= Student.find(session[:student_id])
+    student_id = cookies.signed[:student_id]
+    return if student_id.blank?
+    @current_student ||= Student.find(student_id)
   end
 
   def authenticate_student

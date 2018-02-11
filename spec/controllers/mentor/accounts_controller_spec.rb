@@ -5,13 +5,16 @@ RSpec.describe Mentor::AccountsController, type: :controller do
   before(:each) do
     create(:type, name: 'student')
     create(:type, name: 'mentor')
-    session[:mentor_id] = mentor.id
+    cookies.permanent.signed[:mentor_id] = {
+      value: mentor.id,
+      expires: 30.days.from_now
+    }
   end
 
   # before_actionは全てのアクションでテストする必要ないと判断
   context 'when mentor does not login' do
     before(:each) do
-      session[:mentor_id] = nil
+      cookies.delete(:mentor_id)
       get :show
     end
 
