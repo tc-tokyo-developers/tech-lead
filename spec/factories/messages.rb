@@ -4,7 +4,7 @@
 #
 #  id            :integer          not null, primary key
 #  content       :text(65535)
-#  chat_group_id :integer
+#  chat_group_id :integer          not null
 #  user_id       :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -16,11 +16,14 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (chat_group_id => chat_groups.id)
+#  fk_rails_...  (chat_group_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
 
 FactoryBot.define do
   factory :message do
-    
+    content 'test_message'
+    user
+    chat_group
   end
 end
