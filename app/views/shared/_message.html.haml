@@ -1,0 +1,14 @@
+-# TODO: 分岐が汚すぎるからどうにかする
+- if (defined?(current_mentor) && message.user.type_id == 'mentor') || (defined?(current_student) && current_student&.id == message.user_id) || defined?(right)
+  -# 右
+  .d-flex.justify-content-end
+    .bg-white
+      = message.content
+    = link_to '#', class: 'list-group-item text-right' do
+      = message.user.nickname
+- else
+  .d-flex.justify-content-start
+    = link_to '#', class: 'list-group-item' do
+      = message.user.nickname
+    .bg-white
+      = message.content

@@ -1,0 +1,6 @@
+= link_to mentor_chat_group_path(chat_group),
+  class: "list-group-item list-group-item-action flex-column align-items-start #{'active' if @chat_group&.id == chat_group.id}" do
+  .d-flex.w-100.justify-content-between
+    %h5.mb-1= chat_group.nickname
+    %small= chat_group.updated_time&.strftime('%Y/%m/%d %H:%M:%S')
+  %p.mb-1= chat_group.latest_message || 'no messages'

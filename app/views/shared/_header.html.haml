@@ -1,9 +1,11 @@
 %nav.navbar.sticky-top.navbar-light.navcolor.justify-content-between
   = link_to root_url, class: 'navbar-brand' do
     .h2.text-white TECH::LEAD
-  %button.navbar-toggler{ type: 'button', 'data-toggle' => 'collapse', 'data-target' => '#navbarNav', 'aria-controls' => 'navbarNav', 'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
+  %button.navbar-toggler{ type: 'button', 'data-toggle' => 'collapse',
+    'data-target' => '#navbarNav', 'aria-controls' => 'navbar-nav',
+    'aria-expanded' => 'false', 'aria-label' => 'Toggle navigation' }
     %span.navbar-toggler-icon
-  .collapse.navbar-collapse#navbarNav
+  .collapse.navbar-collapse#navbar-nav
     .navbar-brand
       = # TODO url変更する
       = link_to '質問する', root_url, class: 'question nav-link text-white'

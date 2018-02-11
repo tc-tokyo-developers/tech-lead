@@ -1,8 +1,14 @@
--# .message
--#   = render @messages
-
--# = form_for @message, url: mentor_chat_group_messages_path(@chat_group) do |f|
-= form_for ['mentor', @chat_group, @message] do |f|
-  %div
-    = f.text_area :content
-  = f.submit '投稿'
+.container.h-100
+  %h1.py-4.text-dark オリアプ相談チャット
+  .row.h-100.my-3.border
+    .col-3.list-group.py-0.bg-white
+      = render @chat_groups
+    .col-9.d-flex.flex-column.px-0
+      .list-group.w-100.px-1.py-1#messages
+        = render partial: 'shared/message', collection: @messages
+      .mt-auto.w-100.px-2.py-1.bg-secondary
+        = form_for '' do |f|
+          .d-flex.justify-content-between
+            = f.hidden_field :user_id, value: current_mentor.id, id: 'user_id'
+            = f.text_area :content, 'data-behavior' => 'message_input'
+            = f.submit '投稿'
