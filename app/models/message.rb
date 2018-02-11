@@ -4,7 +4,7 @@
 #
 #  id            :integer          not null, primary key
 #  content       :text(65535)
-#  chat_group_id :integer
+#  chat_group_id :integer          not null
 #  user_id       :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -16,10 +16,16 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (chat_group_id => chat_groups.id)
+#  fk_rails_...  (chat_group_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
 
 class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :user, foreign_key: :chat_group_id
+  belongs_to :chat_group
+
+  # TODO: 画像投稿実装時に外す
+  validates :content, presence: true
+  validates :chat_group_id, presence: true
+  validates :user_id, presence: true
 end

@@ -23,6 +23,8 @@
 #
 
 class Student < User
+  default_scope -> { where(type_id: :student) }
+
   before_validation do
     self.type_id = :student
     self.verified = true

@@ -23,6 +23,8 @@
 #
 
 class Mentor < User
+  default_scope -> { where(type_id: :mentor) }
+
   before_validation { self.type_id = :mentor }
 
   def self.find_from_auth_hash(auth_hash)
