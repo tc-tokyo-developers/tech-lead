@@ -1,18 +1,20 @@
-class Mentor::ChatGroupsController < ApplicationController
-  def index
-    @chat_groups = ChatGroup.all
-  end
+class Mentor::ChatGroupsController < Mentor::BaseController
+  before_action :set_chat_groups, only: %i[index show]
+
+  def index; end
 
   def show
-    @chat_group_ids = ChatGroup.pluck(:id)
-    @chat_group = ChatGroup.find_by(chat_group_params)
-    @messages = Message.where(chat_group_params)
+    @chat_group = ChatGroup.find(params[:id])
+    @messages = @chat_group.messages.includes(:user)
     @message = Message.new
+  rescue ActiveRecord::RecordNotFound
+    redirect_to mentor_chat_groups_path
   end
 
   private
 
-  def chat_group_params
-    params.permit(:chat_group_id, :content)
+  def set_chat_groups
+    # TODO: SQL発行しまくるのでどうにかする
+    @chat_groups = ChatGroup.all_with_latest_message
   end
 end
