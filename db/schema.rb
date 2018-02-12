@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180109080016) do
 
-  create_table "chat_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",       limit: 65535
     t.integer  "chat_group_id",               null: false
