@@ -16,6 +16,11 @@ App.message = App.cable.subscriptions.create 'MessageChannel',
       # left
       $('#messages').append(data['left_message'])
 
+    # 自動スクロール
+    $('#messages').stop().animate({
+      scrollTop: $('#messages')[0].scrollHeight
+    }, 'normal')
+
   post: (content) ->
     chat_group_id = chat_group_id_from_path()
     if chat_group_id is false
