@@ -1,35 +1,36 @@
 # MessageChannelを使うAppを作成
-App.message = App.cable.subscriptions.create 'MessageChannel',
-  connected: ->
-    # Called when the subscription is ready for use on the server
+$(document).on 'turbolinks:load', ->
+  App.message = App.cable.subscriptions.create 'MessageChannel',
+    connected: ->
+      # Called when the subscription is ready for use on the server
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+    disconnected: ->
+      # Called when the subscription has been terminated by the server
 
-  received: (data) ->
-    if data['chat_group_id'] isnt parseInt(chat_group_id_from_path(), 10)
-      return
+    received: (data) ->
+      if data['chat_group_id'] isnt parseInt(chat_group_id_from_path(), 10)
+        return
 
-    if user_type() is data['user_type']
-      $('#messages').append(data['right_message'])
-    else
-      # left
-      $('#messages').append(data['left_message'])
+      if user_type() is data['user_type']
+        $('#messages').append(data['right_message'])
+      else
+        # left
+        $('#messages').append(data['left_message'])
 
-    # 自動スクロール
-    $('#messages').stop().animate({
-      scrollTop: $('#messages')[0].scrollHeight
-    }, 'normal')
+      # 自動スクロール
+      $('#messages').stop().animate({
+        scrollTop: $('#messages')[0].scrollHeight
+      }, 'normal')
 
-  post: (content) ->
-    chat_group_id = chat_group_id_from_path()
-    if chat_group_id is false
-      return
+    post: (content) ->
+      chat_group_id = chat_group_id_from_path()
+      if chat_group_id is false
+        return
 
-    # TODO: 暗号化
-    user_id = $('#user_id').val()
+      # TODO: 暗号化
+      user_id = $('#user_id').val()
 
-    @perform 'post', content: content, chat_group_id: chat_group_id, user_id: user_id, user_type: user_type()
+      @perform 'post', content: content, chat_group_id: chat_group_id, user_id: user_id, user_type: user_type()
 
 
 user_type = ->
@@ -58,13 +59,12 @@ chat_group_id_from_path = ->
 
 
 # 送信ボタンで送信
-$ ->
-  $('#chatSubmitButton').on 'click', (e) ->
-    e.preventDefault()
-    $input = $('#chatInput')
-    content = $input.val()
-    if content is ''
-        return false
+$(document).on 'click', '#chatSubmitButton', (e) ->
+  e.preventDefault()
+  $input = $('#chatInput')
+  content = $input.val()
+  if content is ''
+      return false
 
-    App.message.post content
-    $input.val('')
+  App.message.post content
+  $input.val('')
