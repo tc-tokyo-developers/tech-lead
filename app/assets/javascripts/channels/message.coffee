@@ -52,25 +52,14 @@ chat_group_id_from_path = ->
     return matched_id[1]
 
 
-# Enterキーで送信
-$(document).on 'keypress', '[data-behavior~=message_input]', (e) ->
-  if e.keyCode is 13
+# 送信ボタンで送信
+$ ->
+  $('#chatSubmitButton').on 'click', (e) ->
     e.preventDefault()
-    content = e.target.value
+    $input = $('#chatInput')
+    content = $input.val()
     if content is ''
-      return
+        return false
 
     App.message.post content
-    e.target.value = ''
-
-
-# 送信ボタンで送信
-$(document).on 'click', '[data-behavior~=message_input]', (event) ->
-  event.preventDefault()
-  $input = $('textarea[data-behavior~=message_input]')
-  content = $input.value
-  if content is ''
-      return
-
-  App.message.post content
-  $input.value = ''
+    $input.val('')

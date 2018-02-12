@@ -1,13 +1,15 @@
-.container.h-100
-  %h1.py-4.text-dark オリアプ相談チャット
-  .h-100.my-3.border
+.container.chat-container
+  %h3.py-4.text-dark オリアプ相談チャット
+  .mx-0.my-2.border.chat-area
     .d-flex.flex-column.px-0
-      .list-group.w-100.px-1.py-1#messages
+      .list-group.w-100.px-1.py-1.chat-messages-area#messages
         = render partial: 'shared/message', collection: @messages
-      .mt-auto.w-100.px-2.py-1.bg-secondary
-        = form_for ['student', @message] do |f|
-          .d-flex.justify-content-between
-            = f.hidden_field :chat_group_id, value: current_student.id, id: 'chat_group_id'
-            = f.hidden_field :user_id, value: current_student.id, id: 'user_id'
-            = f.text_area :content, 'data-behavior' => 'message_input'
-            = f.submit '投稿'
+      .mt-auto.w-100.px-2.py-1
+        %form.mb-0
+          -# TODO: 暗号化
+          = hidden_field_tag '', current_student.id, id: 'user_id'
+          = hidden_field_tag '', current_student.id, id: 'chat_group_id'
+          .row.w-100.mx-0
+            .chat-box-wrapper.col-10
+              = text_area_tag '', '', id: 'chatInput', class: 'py-0 border chat-box'
+            = button_tag '送信', type: 'button', id: 'chatSubmitButton', class: 'py-0 btn btn-raised btn-info col-2 chat-submit-button'
