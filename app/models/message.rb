@@ -26,6 +26,4 @@ class Message < ApplicationRecord
 
   # TODO: 画像投稿実装時に外す
   validates :content, presence: true
-  validates :chat_group_id, presence: true
-  validates :user_id, presence: true
 end
