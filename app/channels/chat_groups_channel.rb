@@ -1,6 +1,6 @@
-class MessageChannel < ApplicationCable::Channel
+class ChatGroupsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'message_channel'
+    stream_from "chat_groups_#{params[:chat_group_id]}_channel"
   end
 
   def unsubscribed
@@ -11,7 +11,7 @@ class MessageChannel < ApplicationCable::Channel
     message = Message.new(
       content: data['content'],
       chat_group_id: data['chat_group_id'],
-      user_id: data['user_id']
+      user_id: current_user_id
     )
     # TODO: エラー処理
     message.save!
