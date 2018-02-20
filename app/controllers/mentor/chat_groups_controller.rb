@@ -6,7 +6,7 @@ class Mentor::ChatGroupsController < Mentor::BaseController
   def show
     @chat_group = ChatGroup.find(params[:id])
     @messages = @chat_group.messages.includes(:user)
-    @message = Message.new
+    @chat_group_id = @chat_group.id
   rescue ActiveRecord::RecordNotFound
     redirect_to mentor_chat_groups_path
   end
