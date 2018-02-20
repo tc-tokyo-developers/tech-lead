@@ -19,7 +19,7 @@ RSpec.describe Student::MessagesController, type: :controller do
     before(:each) { get :index }
 
     it { expect(assigns(:messages)).to eq messages }
-    it { expect(assigns(:message)).to be_a_kind_of(Message) }
+    it { expect(assigns(:chat_group_id)).to eq student.id }
     it { expect(response).to render_template :index }
   end
 end

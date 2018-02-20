@@ -33,7 +33,7 @@ class ChatGroup < Student
             #{latest_message_sql('content')} AS latest_message,
             #{latest_message_sql('created_at')} AS updated_time
           FROM users
-          WHERE type_id = #{type_ids[:student]}
+          WHERE users.type_id = #{type_ids[:student]}
           ORDER BY updated_time DESC
         SQL
       )
