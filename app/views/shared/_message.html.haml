@@ -1,7 +1,6 @@
--# TODO: 分岐が汚すぎるからどうにかする
-- right_message = (defined?(current_mentor) && message.user.type_id == 'mentor') || (defined?(current_student) && current_student&.id == message.user_id) || defined?(right)
+- is_right_side = same_user_type?(message) || (defined?(side) && side == 'right')
 .d-block
-  .d-flex.chat-message{ class: right_message ? 'flex-row-reverse' : 'flex-row' }
+  .d-flex.chat-message{ class: is_right_side ? 'flex-row-reverse' : 'flex-row' }
     .py-0
       -# TODO: プロフィール画面作成
       = link_to '#', class: 'list-group-item' do
@@ -12,4 +11,5 @@
       .bg-white.chat-message--content.border.px-2.py-1
         = simple_format(message.content, class: 'my-0')
     .py-2.d-flex
-      .align-self-end.px-1.py-2.text-secondary.chat-message--time= message.created_at&.strftime('%-m/%-d %H:%M')
+      .align-self-end.px-1.py-2.text-secondary.chat-message--time
+        = message.created_at&.strftime('%-m/%-d %H:%M')

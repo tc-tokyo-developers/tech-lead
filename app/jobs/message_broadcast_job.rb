@@ -5,23 +5,18 @@ class MessageBroadcastJob < ApplicationJob
   def perform(message, user_type)
     ActionCable.server.broadcast(
       "chat_groups_#{message.chat_group_id}_channel",
-      right_message: render_right_message(message),
-      left_message: render_left_message(message),
+      right_message: render_message(message, 'right'),
+      left_message: render_message(message, 'left'),
       user_type: user_type
     )
   end
 
   private
 
-  def render_right_message(message)
-    ApplicationController.renderer.render(
-      partial: 'shared/message', locals: { message: message, right: true }
-    )
-  end
-
-  def render_left_message(message)
-    ApplicationController.renderer.render(
-      partial: 'shared/message', locals: { message: message, left: true }
+  def render_message(message, side)
+    ApplicationController.render(
+      partial: 'shared/message',
+      locals: { message: message, side: side }
     )
   end
 end
