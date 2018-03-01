@@ -71,5 +71,10 @@ group :development do
   gem 'annotate'
 end
 
+group :production do
+  # productionでactioncableを使用する
+  # gem 'redis'
+end
+
 # windows対応
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

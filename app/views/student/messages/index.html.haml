@@ -1,0 +1,11 @@
+.container.chat-container
+  %h3.py-4.text-dark オリアプ相談チャット
+  .mx-0.my-2.border.chat-area
+    .d-flex.flex-column.px-0
+      .list-group.w-100.px-1.py-1.chat-messages-area#messages{ 'data-chat-group-id' => @chat_group_id }
+        = render partial: 'shared/message', collection: @messages
+      .mt-auto.w-100.px-2.py-1
+        .row.w-100.mx-0
+          .chat-box-wrapper.col-10
+            = text_area_tag '', '', id: 'chatInput', class: 'py-0 border chat-box'
+          = button_tag '送信', type: 'button', id: 'chatSubmitButton', class: 'py-0 btn btn-raised btn-info col-2 chat-submit-button'

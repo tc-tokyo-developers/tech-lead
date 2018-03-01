@@ -9,12 +9,15 @@ RSpec.describe Mentor::SessionsController, type: :controller do
   describe '#destroy' do
     let(:mentor) { build(:mentor) }
     before(:each) do
-      session[:mentor_id] = mentor.id
+      cookies.permanent.signed[:mentor_id] = {
+        value: mentor.id,
+        expires: 30.days.from_now
+      }
       get :destroy
     end
 
-    it 'resets sessions' do
-      expect(session[:mentor_id]).to eq nil
+    it 'resets cookies' do
+      expect(cookies.signed[:mentor_id]).to eq nil
     end
     it 'redirects to mentor_root_url' do
       expect(response).to redirect_to mentor_root_url

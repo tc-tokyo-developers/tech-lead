@@ -8,12 +8,15 @@ RSpec.describe Student::SessionsController, type: :controller do
   describe '#destroy' do
     let(:student) { build(:student) }
     before(:each) do
-      session[:student_id] = student.id
+      cookies.permanent.signed[:student_id] = {
+        value: student.id,
+        expires: 30.days.from_now
+      }
       get :destroy
     end
 
-    it 'resets sessions' do
-      expect(session[:student_id]).to eq nil
+    it 'resets cookies' do
+      expect(cookies.signed[:student_id]).to eq nil
     end
     it 'redirects to root_url' do
       expect(response).to redirect_to root_url
