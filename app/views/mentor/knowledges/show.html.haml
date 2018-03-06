@@ -1,0 +1,8 @@
+%p
+  = @knowledge.title
+= parse_markdown(@knowledge.content)
+
+%div
+  = link_to '編集', edit_mentor_knowledge_path
+
+

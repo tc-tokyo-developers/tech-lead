@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109080016) do
+ActiveRecord::Schema.define(version: 20180113070013) do
+
+  create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "title",                 null: false
+    t.text    "content", limit: 65535, null: false
+    t.integer "user_id",               null: false
+    t.index ["user_id"], name: "index_knowledges_on_user_id", using: :btree
+  end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",       limit: 65535
@@ -41,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180109080016) do
     t.index ["type_id"], name: "index_users_on_type_id", using: :btree
   end
 
+  add_foreign_key "knowledges", "users"
   add_foreign_key "messages", "users"
   add_foreign_key "messages", "users", column: "chat_group_id"
   add_foreign_key "users", "types"

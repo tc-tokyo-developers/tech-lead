@@ -1,0 +1,11 @@
+$(document).ready(function() {
+    $('#knowledge_create_ajax').hide();
+    $('#knowledge_content').keyup(function () {
+        $('#knowledge_create_ajax').click();
+    });
+    $('form').on('ajax:error', function(event, results) {
+        console.log(results);
+        $('#preview').html(results.responseText);
+    });
+});
+
