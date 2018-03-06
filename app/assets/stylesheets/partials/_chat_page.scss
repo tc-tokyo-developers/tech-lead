@@ -1,0 +1,38 @@
+.chat-container {
+  min-width: 800px;
+  .chat {
+    &-area {
+      // TODO: サイズを可変にする
+      min-height: 670px;
+    }
+    &-messages-area {
+      height: 600px;
+      overflow-y: auto;
+      bottom: 0;
+      position: relative;
+      &:last-child {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+    &-message {
+      &--content {
+        border-radius: 10px;
+      }
+      &--time {
+        font-size: 12px;
+      }
+    }
+    &-box-wrapper {
+      box-sizing: border-box;
+      padding: 0 10px;
+      .chat-box {
+        width: 100%;
+        outline: 0;
+      }
+    }
+    &-submit-button {
+      font-size: 20px;
+    }
+  }
+}

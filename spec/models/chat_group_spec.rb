@@ -22,14 +22,8 @@
 #  fk_rails_...  (type_id => types.id)
 #
 
-class User < ApplicationRecord
-  has_many :messages, dependent: :destroy
-  enum type_id: { student: 1, mentor: 2 }
+require 'rails_helper'
 
-  validates :type_id, :provider, :uid, :github_name, presence: true
-  validates :verified, inclusion: { in: [true, false] }
-
-  def username
-    nickname? ? nickname : github_name
-  end
+RSpec.describe ChatGroup, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     when 'student'
       create_or_login_student
     else
-      # TODO: エラーをハンドリングする(セッション切れ)
+      # TODO: エラーをハンドリングする(クッキー切れ)
       raise
     end
   end
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
       mentor = Mentor.create_with_omniauth(auth_hash)
       redirect_to edit_mentor_account_path, notice: 'ユーザー情報を登録してください'
     end
-    session[:mentor_id] = mentor.id
+    add_mentor_id_to_cookies(mentor)
   end
 
   def create_or_login_student
@@ -32,10 +32,26 @@ class SessionsController < ApplicationController
       student = Student.create_with_omniauth(auth_hash)
       redirect_to edit_student_account_path, notice: 'ユーザー情報を登録してください'
     end
-    session[:student_id] = student.id
+    add_student_id_to_cookies(student)
   end
 
   def auth_hash
     request.env['omniauth.auth']
+  end
+
+  def add_mentor_id_to_cookies(mentor)
+    cookies.delete(:student_id)
+    cookies.permanent.signed[:mentor_id] = {
+      value: mentor.id,
+      expires: 30.days.from_now
+    }
+  end
+
+  def add_student_id_to_cookies(student)
+    cookies.delete(:mentor_id)
+    cookies.permanent.signed[:student_id] = {
+      value: student.id,
+      expires: 30.days.from_now
+    }
   end
 end
